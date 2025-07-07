@@ -1,0 +1,18 @@
+name: Hello Cron
+
+on:
+  schedule:
+    - cron: '* * * * *'  # Every minute
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Echo Hello
+        run: echo "hello at $(date)"
