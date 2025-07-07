@@ -8,6 +8,10 @@ on:
 jobs:
   say-hello:
     runs-on: ubuntu-latest
+    
+    env:
+      ENV_TYPE: ${{ secrets.ENV_TYPE }}
+      TEST_VAR: ${{ secrets.TEST_VAR }}
 
     steps:
       - name: Checkout main branch
@@ -16,4 +20,7 @@ jobs:
           ref: main
 
       - name: Echo Hello
-        run: echo "hello at $(date)"
+        run: |
+          echo "hello at $(date)"
+          echo "Environment Type: $ENV_TYPE"
+          echo "Test Var: $TEST_VAR"
