@@ -2,7 +2,8 @@ name: Hello Cron
 
 on:
   schedule:
-    - cron: '* * * * *'  # Every minute
+    - cron: '*/5 * * * *'  # Every minute
+  workflow_dispatch:
 
 jobs:
   say-hello:
